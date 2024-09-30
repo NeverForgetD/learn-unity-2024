@@ -5,7 +5,7 @@ using UnityEngine;
 public class Managers : MonoBehaviour
 {
     static Managers s_instance;
-    static Managers Instance { get { return s_instance; } }
+    static Managers Instance { get { Init(); return s_instance; } }
 
     InputManager _input = new InputManager();
     ResourceManager _resource = new ResourceManager();
