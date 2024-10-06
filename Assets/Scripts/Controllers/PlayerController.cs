@@ -18,17 +18,11 @@ public class PlayerController : MonoBehaviour
         Managers.Input.MouseAction -= OnMouseClicked;
         Managers.Input.MouseAction += OnMouseClicked;
 
-        // Managers.Resource.Instantiate("UI/UI_Button");
-
         //TEMP
-        UI_Button ui = Managers.UI.ShowPopupUI<UI_Button>();
-        //Managers.UI.ClosePopupUI(ui);
-
+        Managers.UI.ShowSceneUI<UI_Inven>();
     }
     private void Update()
-    {
-        //OnKeyboard
-        
+    {        
         if (_moveToDest)
         {
             Vector3 dir = _destPos - transform.position;
@@ -39,7 +33,6 @@ public class PlayerController : MonoBehaviour
                 float moveDist = Mathf.Clamp(_speed * Time.deltaTime, 0.0f, dir.magnitude);
                 transform.position += dir.normalized * moveDist;
 
-                //transform.LookAt(_destPos);
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 10 * Time.deltaTime);
             }
         }
