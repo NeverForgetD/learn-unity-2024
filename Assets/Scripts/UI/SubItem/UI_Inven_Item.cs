@@ -23,7 +23,7 @@ public class UI_Inven_Item : UI_Base
         Bind<GameObject>(typeof(GameObjects));
 
         Get<GameObject>((int)GameObjects.ItemNameText).GetComponent<TextMeshProUGUI>().text = $"{_name}";
-        Get<GameObject>((int)GameObjects.ItemIcon).AddUIEvent((PointEventData) => { Debug.Log($"Item Clicked! {_name}"); });
+        Get<GameObject>((int)GameObjects.ItemIcon).BindEvent((PointEventData) => { Debug.Log($"Item Clicked! {_name}"); });
     }
 
     public void SetInfo(string name)
